@@ -21,12 +21,11 @@ function Formulario() {
         <form action={action} className="my-20 border-2 p-4 flex flex-col gap-4">
             <h1 className="text-center text-xl">Formulario</h1>
 
-
             <div className="flex justify-between px-4 py-2 rounded-md bg-slate-200">
                 <label htmlFor="nombre">Nombre:</label>
                 <input id="nombre" name="nombre" className="ring-2"
-                    // pattern="[A-Za-zÑñÁÉÍÓÚáéíóú]{1,5}"
-                    // title="Mínimo 1 letra, máximo 5 letras"
+                    pattern="[A-Za-zÑñÁÉÍÓÚáéíóú]{2,8}"
+                    // title="Mínimo 2 letra, máximo 8 letras"
                     defaultValue={state.payload?.get("nombre") || ""}  // para recuperar el valor introducido previamente
                 />
             </div>
@@ -43,7 +42,7 @@ function Formulario() {
                 <label htmlFor="edad">Edad:</label>
                 <input type='number' id="edad" name="edad" className="ring-2"
                     defaultValue={state.payload?.get("edad") || ""}  // para recuperar el valor introducido previamente
-                // min={18} max={65}
+                // min={18} max={70}
                 />
             </div>
             {state.issues?.edad && state.issues.edad}
@@ -64,8 +63,8 @@ function Formulario() {
                 <label htmlFor="telefono">Teléfono móvil:</label>
                 <input type='tel' id="telefono" name="telefono" className="ring-2"
                     defaultValue={state.payload?.get("telefono") || ""}  // para recuperar el valor introducido previamente
-                // pattern="[678]{1}[0-9]{8}"
-                // title="9 dígitos, siendo el primero 6,7 u 8"
+                    // pattern="[623]{1}[0-9]{9}"
+                    // title="10 dígitos, siendo el primero 6,2 u 3"
                 />
             </div>
             {state.issues?.telefono && state.issues.telefono}
@@ -76,7 +75,7 @@ function Formulario() {
                 <label htmlFor="fecha">Fecha de incidencia:</label>
                 <input type="date" id="fecha" name="fecha" className="ring-2"
                     defaultValue={state.payload?.get("fecha") || new Date().toISOString().split('T')[0]}  // para recuperar el valor introducido previamente
-                // min="2024-01-01" max="2024-12-31"
+                // min="2020-01-01" max="2025-12-31"
                 />
             </div>
             {state.issues?.fecha && state.issues.fecha}
@@ -95,7 +94,7 @@ function Formulario() {
 
             <button
                 disabled={pending}
-                className="disabled:bg-slate-600 bg-blue-600 text-white rounded-lg py-2" >
+                className="disabled:bg-slate-600 bg-green-600 text-white rounded-lg py-2" >
                 {pending ? <RefreshCcw className="inline animate-spin size-4" /> : 'Insertar'}
             </button>
 
