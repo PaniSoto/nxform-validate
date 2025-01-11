@@ -42,7 +42,7 @@ function Formulario() {
                 <label htmlFor="edad">Edad:</label>
                 <input type='number' id="edad" name="edad" className="ring-2"
                     defaultValue={state.payload?.get("edad") || ""}  // para recuperar el valor introducido previamente
-                // min={18} max={70}
+                // min={15} max={70}
                 />
             </div>
             {state.issues?.edad && state.issues.edad}
